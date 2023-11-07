@@ -1,39 +1,37 @@
 @include('userpanel.layout.header')
 
-<div class="container py-5">
-@if($session=session('message'))
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-        {{$session}}
-    </div>
-    @endif  
-        <div class="row">
-            <div class="col-md-6">              
-                <img class="img-fluid h-100 w-100 border rounded"  src="/product/{{$product->image}}" alt="Error loading images">   
-            </div>
-            <div class="col-md-6 mt-3">       
-               
-                <h1  class="font-weight-bold text-center">{{$product->title}}</h1>  
-                <p  class="my-3"><div class="font-weight-bold mb-2">Description:</div>  {{$product->description}}</p>  
-                <p  class="my-3"><div class="font-weight-bold mb-2">Category:</div>{{$product->category}}</p>  
-                <p  class="my-3"><div class="font-weight-bold mb-2">Quantity: </div>{{$product->quantity}}</p> 
-                @if($product->discount_price!=null)
-                <p style="color:blue; text-decoration:line-through" class="my-3 font-weight-bold">Product Price: {{$product->price}}</p>  
-                <p style="color:red"  class="my-3 font-weight-bold">Discount Price: {{$product->discount_price}}</p>  
-               
-                @else
-                <p  class="my-3 font-weight-bold">{{$product->price}}</p> 
-                @endif
-                <form class="btn border border-dark m-auto inner text-light w-75" style="background-color:rgb(121, 8, 8)"  action="{{url('/add_cart',$product->id)}}" method="post">
-                    @csrf
-                    <input name="quantity" min="1" class=" w-50 text-dark" type="number">
-                    <input style="background-color:rgb(121, 8, 8)"  type="submit" value="Add to cart">
-                </form>
-            </div>
-          
+<div class="py-10">
+    @if($session=session('message'))
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
+            {{$session}}
         </div>
-            
-       
+    @endif  
+    <div class="grid md:grid-cols-2 gap-4">
+        <div class="grid justify-items-center">              
+            <img class="sm:h-cover sm:w-fit h-80 w-80 rounded sm:px-0"  src="/product/{{$product->image}}" alt="Error loading images">   
+        </div>
+        <div class="md:mr-5 ml-4">          
+            <h1  class="font-bold text-2xl text-center">{{$product->title}}</h1>  
+            <p  class="my-3"><div class="font-bold md:mb-0 mb-3">Description:</div>  {{$product->description}}</p>  
+            <p  class="my-3"><div class="font-bold md:mb-0 mb-3">Category:</div>{{$product->category}}</p>  
+            <p  class="my-3"><div class="font-bold  md:mb-0 mb-3">Quantity: </div><span class=mr-3>Available:</span>{{$product->quantity}}</p> 
+            @if($product->discount_price!=null)
+                <p class="my-3 font-bold text-blue-700 line-through">Product Price: {{$product->price}}</p>  
+                <p class="my-3 font-bold text-red-600">Discount Price: {{$product->discount_price}}</p>  
+               
+            @else
+                <p  class="my-3 font-bold text-blue-700">Product Price:{{$product->price}}</p> 
+            @endif
+            <form class="sm:w-96 w-52  btn border bg-orange-500 hover:bg-orange-700 text-white  action="{{url('/add_cart',$product->id)}}" method="post">
+                @csrf
+                <input name="quantity" min="1" class="text-black hover:border-black" type="number">
+                <input class="lg:pl-7 pl-5" type="submit" value="Add to cart">
+            </form>
+        </div>
+          
     </div>
+</div>
+</div>
     @include('userpanel.layout.footer')
-    @include('userpanel.layout.script')
+  

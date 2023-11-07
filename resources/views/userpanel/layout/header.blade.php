@@ -7,65 +7,78 @@
     <title>Blissberry</title>
     <link rel="shortcut icon" href="{{asset('home/images/icon.png')}}" type="image/x-icon">
     <link rel="stylesheet" href="{{asset('home/CSS/style.css')}}">
-    <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css')}}"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+    @vite('resources/css/app.css')
 </head>
 
 <body>
-    <!-- navbar -->
-    <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <i class="fa-duotone fa-cupcake" style="--fa-primary-color: #d32727; --fa-secondary-color: #d32727;"></i>
-            <a class="navbar-brand header font-weight-bold text-dark text-uppercase" href="#">Blissberry</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+    
+<nav class="bg-white border-gray-200 dark:bg-gray-900">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+          <span class="self-center text-2xl  whitespace-nowrap dark:text-white uppercase font-bold">Blissberry</span>
+      
+          <button
+          data-collapse-toggle="navbar-default"
+          type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          aria-controls="navbar-default"
+          aria-expanded="false"
+        >
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h15M1 7h15M1 13h15"/>
+          </svg>
+        </button>
+      <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+        <ul class="font-medium flex flex-col mt-4 md:p-0  border border-gray-100 rounded-lg bg-gray-50 md:flex-row lg:space-x-6 md:space-x-5 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
+          <li>
+            <a href="{{ url('/') }}" class="block  pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500 uppercase font-semibold" aria-current="page">Home</a>
+          </li>
+          <li>
+            <a href="{{ url('about_us') }}" class="block py-2 pl-1 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent uppercase font-semibold">About Us</a>
+          </li>
+          <li>
+            <a href="{{ url('all_product') }}" class="block py-2 pl-1 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent uppercase font-semibold">All Products</a>
+          </li>
+         
+          <li>
+            <a href="{{ url('show_cart') }}" class="block py-2 pl-1 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">
+                <i class="fa-solid fa-cart-shopping"></i>
+            </a>
+          </li>
+          <li>
+            <a href="{{ url('show_order') }}" class="block py-2 pl-0 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent uppercase font-semibold" >Order</a>
+          </li>
+          @if (Route::has('login'))
+          @auth
+          <li class="nav-item">
+          <x-app-layout>
 
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link px-lg-4 font-weight-bold text-uppercase" href="{{url('/')}}">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark px-lg-4 font-weight-bold text-uppercase" href="{{url('/about_us')}}">About Us</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark px-lg-4 font-weight-bold text-uppercase" href="{{url('/all_product')}}">All Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-lg-4 text-dark" href="#"><i class="fa-regular fa-heart"></i></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link px-lg-4 text-dark" href="{{url('show_cart')}}"><i class="fa-solid fa-cart-shopping"></i></a>
-                    </li>
-                    <li class="nav-item">
-                    <a class="nav-link text-dark px-lg-4 font-weight-bold text-uppercase" href="{{url('show_order')}}">Order</a>
-                    </li>
-                    @if (Route::has('login'))
-                    @auth
-                    <li class="nav-item">
-                    <x-app-layout>
-
-                    </x-app-layout>
-                    </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link text-dark px-lg-4 font-weight-bold text-uppercase" href="{{ route('login') }}">Login</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark px-lg-4 font-weight-bold text-uppercase" href="{{ route('register') }}">Register</a>
-                    </li>
-                    @endauth
-                    @endif
-                    
-            </div>
-        </nav>
+          </x-app-layout>
+          </li>
+          @else
+          <li>
+            <a href="{{ route('login') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent uppercase font-semibold" >login</a>
+          </li>
+          <li>
+            <a href="{{ route('register') }}" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent uppercase font-semibold" >Register</a>
+          </li>
+          @endauth
+          @endif
+        </ul>
+      </div>
     </div>
-    <!-- navbar -->
+  </nav>
+    <script src="{{asset('https://kit.fontawesome.com/6b5200b138.js')}}" crossorigin="anonymous"></script>
+    <script>
+      const button = document.querySelector('[data-collapse-toggle="navbar-default"]');
+      const menu = document.getElementById('navbar-default');
 
 
+      button.addEventListener('click', function () {
+  // Toggle the "hidden" class on the menu to show/hide it
+        menu.classList.toggle('hidden');
+});
+    </script>
 </body>
 
 </html>

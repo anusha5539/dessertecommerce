@@ -49,7 +49,7 @@
                         </div>
                         <div class="mt-3">
                             <label for="price">Discount Price:</label>
-                            <input class="w-50 ml-lg-5 text-dark" type="number" placeholder="Write product price" name="discount_price">
+                            <input class="w-50 ml-lg-5 text-dark" type="number" placeholder="Write discount price" name="discount_price">
                         </div>
                         <div class="mt-3">
                             <label for="Quantity">Product Quantity:</label>
@@ -60,7 +60,7 @@
                             <select required=""   name="category" class="text-dark w-50 ml-lg-3" id=""> 
                                 <option class="text-dark" name="category" value="">Add a category here</option>
                                 @foreach($category as $category)
-                                <option class="text-dark" name="category" value="Cakes">{{$category->category_name}}</option>
+                                <option class="text-dark" name="category">{{$category->category_name}}</option>
                                 @endforeach
                                 </select>
                         </div>

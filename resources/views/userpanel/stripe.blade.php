@@ -94,7 +94,7 @@
 @include('userpanel.layout.footer')
 
 </body>
-@include('userpanel.layout.script')
+
 <script type="text/javascript" src="{{asset('https://js.stripe.com/v2/')}}"></script>
     
 <script type="text/javascript">

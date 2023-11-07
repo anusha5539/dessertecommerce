@@ -1,36 +1,29 @@
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div class="my-5" style="text-align:center">
-                <h1 class="mb-4">Comments</h1>
-                <form action="{{url('/add_comment')}}" method="post">
+<div>
+            <div class="my-5 ">
+                <h1 class="md:text-5xl sm:text-3xl text-lg font-bold uppercase text-center mb-5">Comments</h1>
+                <form class="text-center mt-10  sm:mx-20 mx-7 " action="{{url('/add_comment')}}" method="post">
                     @csrf
-                    <textarea placeholder="Comment something here.." class="box mb-3" name="comment" id="" cols="70"
-                        rows="7"></textarea><br>
-                    <input style="background-color:rgb(121, 8, 8)" type="submit" value="Comment" class="btn text-light">
+                    <textarea id="message" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Write your thoughts here..." name="comment"></textarea>
+                    <input type="submit" value="Comment" class="bg-red-900 text-white md:px-5 my-7 md:py-2 sm:px-3 sm:py-1 px-2 py-1  border-2 rounded-lg sm:text-lg text-xs border-white">
                 </form>
             </div>
-        </div>
-    </div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <div style="padding-left:25%;" class=" border">
-                <h3 class="my-3 ">All comments</h3>
+<div>
+        <div class="border sm:mx-24 mx-2 md:max-w-6xl  sm:max-w-3xl justify-end pb-10 mb-10">
+                <h3 class="md:text-3xl sm:text-2xl text-lg  text-center my-7 font-bold">All comments</h3>
                 @foreach($comment as $comments)
-                <div class="mb-3">
+                <div class="mb-5 md:max-w-xl max-w-sm    relative lg:left-52 sm:left-20 sm:pl-0 pl-10  ">
                     <b>{{$comments->name}}</b>
                     <p>{{$comments->comment}}</p>
-                    <a href="javascript::void(0)" style="text-decoration:none;" class="text-primary" onclick="reply(this)" data-Commentid="{{$comments->id}}" >Reply</a>
+                    <a href="javascript::void(0)" class=" text-blue-500" onclick="reply(this)" data-Commentid="{{$comments->id}}" >Reply</a>
                     @foreach($reply as $replies)
                     @if($replies->comment_id==$comments->id)
                     <div class="ml-3 mt-3">
                         <b>{{$replies->name}}</b>
                         <p>{{$replies->reply}}</p>
-                        <a href="javascript::void(0)" style="text-decoration:none;" class="text-primary" onclick="reply(this)" data-Commentid="{{$comments->id}}" >Reply</a>
+                        <a href="javascript::void(0)"  class="text-blue-500 " onclick="reply(this)" data-Commentid="{{$comments->id}}" >Reply</a>
                     </div>
                     @endif
                     @endforeach
@@ -50,12 +43,9 @@
                         </form>
                 </div>
             </div>
-        </div>
-    </div>
 </div>
 
 <script>
-
     function reply(caller) {
         document.getElementById('commentId').value=$(caller).attr('data-Commentid')
         $('.replyDiv').insertAfter($(caller))

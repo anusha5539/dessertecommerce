@@ -1,12 +1,12 @@
 <x-guest-layout>
     <x-authentication-card>
         <x-slot name="logo">
-            <x-authentication-card-logo />
+            <h1 class="text-center font-bold text-2xl uppercase mt-7">Register</h1>
         </x-slot>
 
-        <x-validation-errors class="mb-4" />
+        <x-validation-errors  />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form class="mb-7" method="POST" action="{{ route('register') }}">
             @csrf
 
             <div>

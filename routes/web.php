@@ -17,6 +17,9 @@ use Illuminate\Support\Facades\Route;
 
 // to show the home page
 Route::get('/',[HomeController::class,'index']);
+Route::get('/hiii',function(){
+    return view('welcome');
+});
 
 Route::middleware([
     'auth:sanctum',
@@ -73,7 +76,7 @@ Route::get('/delivery/{id}',[AdminController::class,'delivery']);
 Route::get('/print_pdf/{id}',[AdminController::class,'print_pdf']);
 
 // send email
-Route::get('//send_email/{id}',[AdminController::class,'send_email']);
+Route::get('/send_email/{id}',[AdminController::class,'send_email']);
 
 // to search certain product
 Route::get('/search',[AdminController::class,'searchData']);

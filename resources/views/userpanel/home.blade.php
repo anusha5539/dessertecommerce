@@ -8,27 +8,27 @@
 @include('userpanel.product')
 
 <!-- third section -->
-<div class="container py-5">
-  <h1 style="font-size:40px" class="text-center pb-5 text-uppercase font-weight-bold">How we work</h1>
-  <div class="row">
-    <div class="col-lg-3 col-6">
-      <img class="img-fluid h-50 w-50 pl-lg-3" src="home/images/img1.png" alt="error loading">
-      <h3 class=mt-3>Order confirmation</h3>
+<div class="py-5">
+  <h1 class="md:text-5xl sm:text-3xl text-lg font-bold uppercase text-center mb-5">How we work</h1>
+  <div class="grid grid-cols-1 md:grid-cols-4 sm:grid-cols-2 gap-4 sm:my-10 my-5 mx-3">
+    <div>
+      <img class="h-50 w-50" src="home/images/img1.png" alt="error loading">
+      <h3 class="font-bold sm:text-xl text-md ">Order confirmation</h3>
       <p>Our manager contact you for special details.</p>
     </div>
-    <div class="col-lg-3 col-6">
-      <img class="img-fluid h-50 w-50 pl-lg-3" src="home/images/img2.png" alt="error loading">
-      <h3 class=mt-3>Making the dessert</h3>
+    <div class="sm:mt-0 mt-5">
+      <img class="h-50 w-50 " src="home/images/img2.png" alt="error loading">
+      <h3 class="font-bold sm:text-xl text-md">Making the dessert</h3>
       <p>Our chef makes delicious and unique dessert for you.</p>
     </div>
-    <div class="col-lg-3 col-6">
-      <img class="img-fluid h-50 w-50 pl-lg-3" src="home/images/img3.png" alt="error loading">
-      <h3 class=mt-3>Packaging an order</h3>
+    <div class="md:mt-0 sm:mt-5 mt-5">
+      <img class="h-50 w-50" src="home/images/img3.png" alt="error loading">
+      <h3 class="font-bold sm:text-xl text-md">Packaging an order</h3>
       <p>Our staffs gift-wraps your dessert.</p>
     </div>
-    <div class="col-lg-3 col-6">
-      <img class="img-fluid h-50 w-50 pl-lg-3" src="home/images/img4.png" alt="error loading">
-      <h3 class=mt-3>Free delivery</h3>
+    <div class="md:mt-0 sm:mt-5 mt-5">
+      <img class="h-50 w-50" src="home/images/img4.png" alt="error loading">
+      <h3 class="font-bold sm:text-xl text-md">Free delivery</h3>
       <p>Our delivery is convenient and free for you.</p>
     </div>
   </div>
@@ -40,4 +40,4 @@
 <!-- comment and reply section -->
 
 @include('userpanel.layout.footer')
-@include('userpanel.layout.script')
+

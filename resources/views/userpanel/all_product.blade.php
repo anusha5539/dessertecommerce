@@ -3,4 +3,3 @@
 @include('userpanel.comment')
 
 @include('userpanel.layout.footer')
-@include('userpanel.layout.script')

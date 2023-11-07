@@ -1,6 +1,6 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
         <div class="sidebar-brand-wrapper d-none d-lg-flex align-items-center justify-content-center fixed-top">
-          <a class="sidebar-brand brand-logo" href="index.html"><img src="admin/assets/images/logo.svg" alt="logo" /></a>
+          <h1 class="font-bold text-3xl">Blissberry</h1>
           <a class="sidebar-brand brand-logo-mini" href="index.html"><img src="admin/assets/images/logo-mini.svg" alt="logo" /></a>
         </div>
         <ul class="nav">
@@ -71,9 +71,9 @@
                 <i class="mdi mdi-laptop"></i>
               </span>
               <span class="menu-title">Products</span>
-              <i class="menu-arrow"></i>
+             
             </a>
-            <div class="collapse" id="ui-basic">
+            <div>
               <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{url('/view_product')}}">Add Product</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{url('/show_product')}}">Show Product</a></li>
