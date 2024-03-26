@@ -6,12 +6,6 @@
         <input type="submit" value="Search" class="bg-red-900 text-white border-white md:px-5 md:py-2 sm:px-3 sm:py-1 px-2 py-1  border-2 rounded-lg sm:text-lg text-xs">
     </form>
    </div>
-   @if($session=session('message'))
-    <div class="alert alert-success">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">X</button>
-        {{$session}}
-    </div>
-    @endif
 
     <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
         @foreach($product as $products)

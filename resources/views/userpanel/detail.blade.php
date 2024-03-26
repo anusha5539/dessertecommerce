@@ -1,12 +1,6 @@
 @include('userpanel.layout.header')
 
 <div class="py-10">
-    @if($session=session('message'))
-        <div class="alert alert-success">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">x</button>
-            {{$session}}
-        </div>
-    @endif  
     <div class="grid md:grid-cols-2 gap-4">
         <div class="grid justify-items-center">              
             <img class="sm:h-cover sm:w-fit h-80 w-80 rounded sm:px-0"  src="/product/{{$product->image}}" alt="Error loading images">   
